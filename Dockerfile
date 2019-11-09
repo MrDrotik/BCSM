@@ -45,6 +45,6 @@ ADD https://raw.githubusercontent.com/MrDrotik/BCSM/master/MasterServers.vdf \
 WORKDIR /app/Counter-Strike/
 
 RUN chmod +x ./Install.sh && \
-    ./Install.sh 1
+    ./Install.sh
 
 CMD ["/app/Counter-Strike/cstrike.sh"]
