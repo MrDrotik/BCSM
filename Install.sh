@@ -17,7 +17,7 @@ cat "${curdir}/cstrike.desktop" \
 	> "$XDG_DESKTOP_DIR"/cstrike.desktop
 chmod +x "$XDG_DESKTOP_DIR"/cstrike.desktop
 chmod +x "${curdir}/langchanger.sh"
-"${curdir}/langchanger.sh $1"
+`${curdir}/langchanger.sh ${1}`
 echo "OK"
 echo "Change permissions CHMOD"
 chmod +x "${curdir}/cstrike.sh"
