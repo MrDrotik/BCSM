@@ -41,7 +41,7 @@ if [ -f langchanger.cfg ]
     CURRENTLANG=english
 fi
 
-LANG=$1
+LANG="8"
 
 if [ "$LANG" = "" ]
   then
