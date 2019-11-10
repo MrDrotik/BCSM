@@ -36,7 +36,6 @@ RUN cd ./Counter-Strike && \
     locale-gen en_US.UTF-8 && \
     update-locale
 
-COPY Install.sh /app/Counter-Strike/Install.sh
 COPY langchanger.sh /app/Counter-Strike/langchanger.sh
 COPY MasterServers.vdf /app/Counter-Strike/platform/config/MasterServers.vdf
 
