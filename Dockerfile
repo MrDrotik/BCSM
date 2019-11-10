@@ -26,23 +26,19 @@ RUN curl -sL -o/app/Counter-Strike.tar.gz \
 RUN dpkg -i /var/cache/apt/archives/libgcrypt11_1.5.3-2ubuntu4.2_i386.deb && \
     dpkg -i /var/cache/apt/archives/libpng12-0_1.2.54-1ubuntu1_i386.deb
 
-RUN tar -zxvf Counter-Strike.tar.gz && \
-    cd ./Counter-Strike && \
+RUN tar -zxvf Counter-Strike.tar.gz
+
+WORKDIR /app/Counter-Strike/
+
+RUN cd ./Counter-Strike && \
     mkdir /root/.config && \
-    mkdir -p mkdir -p /root/.local/share/applications && \
-    mkdir -p ~/.local/share/applications && \
     touch /root/.config/user-dirs.dirs && \
     locale-gen en_US.UTF-8 && \
     update-locale
 
-ADD https://raw.githubusercontent.com/MrDrotik/BCSM/master/Install.sh \
-        /app/Counter-Strike/Install.sh
-ADD https://raw.githubusercontent.com/MrDrotik/BCSM/master/langchanger.sh \
-        /app/Counter-Strike/langchanger.sh
-ADD https://raw.githubusercontent.com/MrDrotik/BCSM/master/MasterServers.vdf \
-        /app/Counter-Strike/platform/config/MasterServers.vdf
-
-WORKDIR /app/Counter-Strike/
+COPY Install.sh /app/Counter-Strike/Install.sh
+COPY langchanger.sh /app/Counter-Strike/langchanger.sh
+COPY MasterServers.vdf /app/Counter-Strike/platform/config/MasterServers.vdf
 
 RUN chmod +x ./Install.sh && \
     ./Install.sh
