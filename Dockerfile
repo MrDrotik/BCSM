@@ -30,8 +30,7 @@ RUN tar -zxvf Counter-Strike.tar.gz
 
 WORKDIR /app/Counter-Strike/
 
-RUN cd ./Counter-Strike && \
-    mkdir /root/.config && \
+RUN mkdir /root/.config && \
     touch /root/.config/user-dirs.dirs && \
     locale-gen en_US.UTF-8 && \
     update-locale
